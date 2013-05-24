@@ -3,6 +3,7 @@ node_modules
 components
 Documents/js/dist/*
 Documents/js/vendor/*
+!Documents/js/vendor/greensock
 Documents/js/vendor/greensock/*
 
 # Cpanel
