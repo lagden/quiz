@@ -1,0 +1,12 @@
+{
+  "name": "Tex",
+  "version": "0.1.0",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "components"
+  ],
+  "dependencies": {
+    "jquery": "jquery#1.9.1"
+  }
+}
