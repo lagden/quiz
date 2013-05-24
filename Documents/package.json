@@ -11,7 +11,7 @@
   "author": "Thiago Lagden",
   "license": "BSD",
   "devDependencies": {
-    "grunt": "~0.4.*",
+    "grunt": "~0.4.x",
     "grunt-contrib-uglify": "~0.2.0",
     "grunt-contrib-concat": "~0.3.0",
     "grunt-contrib-watch": "~0.4.0",

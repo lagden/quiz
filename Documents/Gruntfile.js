@@ -10,18 +10,18 @@ module.exports = function(grunt) {
       },
       frameworks: {
         src: [
-          , 'components/jquery/jquery.js'
+          'components/jquery/jquery.js'
         ],
         dest: 'js/dist/frameworks.js'
       },
       others: {
         src: [
-            'js/vendor/greensock/src/uncompressed/plugins/CSSPlugin.js'
-          , 'js/vendor/greensock/src/uncompressed/plugins/ScrollToPlugin.js'
-          , 'js/vendor/greensock/src/uncompressed/plugins/easing/EasePack.js'
-          , 'js/vendor/greensock/src/uncompressed/TimelineMax.js'
-          , 'js/vendor/greensock/src/uncompressed/TweenMax.js'
-          , 'js/vendor/greensock/src/uncompressed/jquery.gsap.js'
+            'js/greensock/src/uncompressed/plugins/CSSPlugin.js'
+          , 'js/greensock/src/uncompressed/plugins/ScrollToPlugin.js'
+          , 'js/greensock/src/uncompressed/plugins/easing/EasePack.js'
+          , 'js/greensock/src/uncompressed/TimelineMax.js'
+          , 'js/greensock/src/uncompressed/TweenMax.js'
+          , 'js/greensock/src/uncompressed/jquery.gsap.js'
         ],
         dest: 'js/dist/others.js'
       },
@@ -37,7 +37,7 @@ module.exports = function(grunt) {
           , 'js/dist/others.js'
           , 'js/dist/base.js'
         ],
-        dest: 'js/dist/output.js'
+        dest: 'output.js'
       }
     },
     uglify: {
@@ -57,17 +57,16 @@ module.exports = function(grunt) {
       },
       target: {
         files: {
-          'js/min/output.min.js': [
-              'js/dist/frameworks.js'
-            , 'js/dist/others.js'
+          'output.js': [
+            'js/dist/others.js'
             , 'js/dist/base.js'
           ]
         }
       }
     },
     watch: {
-      files: ['**/*.js'],
-      tasks: ['concat:watch'],
+      files: ['js/main.js'],
+      tasks: ['concat', 'concat:watch'],
     },
   });
 
@@ -76,6 +75,5 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
 
   grunt.registerTask('default', ['concat', 'uglify']);
-  // grunt.registerTask('watch', ['concat', 'uglify']);
 
 };

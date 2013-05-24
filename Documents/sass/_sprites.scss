@@ -1,0 +1,19 @@
+// Helpers
+%complemento{
+    @include inline-block;
+    *margin-right: .3em;
+    vertical-align: middle;
+    padding: 0;
+}
+
+// Ico
+$ico-layout: smart;
+@import "sprites/ico/*.png";
+@include all-ico-sprites(true);
+[class^="ico-"],
+[class*=" ico-"]{
+    @extend %complemento;
+    &:last-child{
+        *margin-left: 0;
+    }
+}

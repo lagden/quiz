@@ -1,3 +1,20 @@
 @charset "UTF-8";
 
 @import "compass";
+
+@import "function";
+@import "mixin";
+
+@import "var";
+@import "sprites";
+
+
+html{
+    font:#{($base-font-size/16px)*1em}/#{$line-height-ratio} serif;
+    overflow-y:scroll;
+    min-height:100%;
+}
+
+.caecilia{
+    @include sans-serif('CaeciliaLTStd-Bold');
+}
