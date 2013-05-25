@@ -27,7 +27,8 @@ module.exports = function(grunt) {
       },
       app: {
         src: [
-          'js/main.js'
+            'js/db.js'
+          , 'js/main.js'
         ],
         dest: 'js/dist/base.js'
       },
@@ -65,7 +66,7 @@ module.exports = function(grunt) {
       }
     },
     watch: {
-      files: ['js/main.js'],
+      files: ['js/main.js','js/db.js'],
       tasks: ['concat', 'concat:watch'],
     },
   });

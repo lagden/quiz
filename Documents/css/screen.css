@@ -1,0 +1,254 @@
+[class^="ico-"],
+[class*=" ico-"] {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  *margin-right: .3em;
+  vertical-align: middle;
+  padding: 0;
+}
+
+.ico-sprite, .ico-a-fail, .ico-a-ok, .ico-a, .ico-b-fail, .ico-b-ok, .ico-b, .ico-c-fail, .ico-c-ok, .ico-c, .ico-correto-empty, .ico-correto-fill, .ico-correto-txt, .ico-correto, .ico-gota-left, .ico-gota-right, .ico-incorreto-empty, .ico-incorreto-fill, .ico-incorreto-txt, .ico-incorreto, .ico-tri-bl, .ico-tri-br, .ico-tri-tl, .ico-tri-tr {
+  background: url('../images/sprites/ico-s8f024a5318.png') no-repeat;
+}
+
+.ico-a-fail {
+  background-position: 0 -148px;
+  height: 37px;
+  width: 37px;
+}
+
+.ico-a-ok {
+  background-position: 0 -37px;
+  height: 37px;
+  width: 37px;
+}
+
+.ico-a {
+  background-position: -37px -37px;
+  height: 37px;
+  width: 37px;
+}
+
+.ico-b-fail {
+  background-position: 0 0;
+  height: 37px;
+  width: 37px;
+}
+
+.ico-b-ok {
+  background-position: -37px 0;
+  height: 37px;
+  width: 37px;
+}
+
+.ico-b {
+  background-position: -74px 0;
+  height: 37px;
+  width: 37px;
+}
+
+.ico-c-fail {
+  background-position: -74px -37px;
+  height: 37px;
+  width: 37px;
+}
+
+.ico-c-ok {
+  background-position: 0 -111px;
+  height: 37px;
+  width: 37px;
+}
+
+.ico-c {
+  background-position: -37px -111px;
+  height: 37px;
+  width: 37px;
+}
+
+.ico-correto-empty {
+  background-position: 0 -1038px;
+  height: 130px;
+  width: 130px;
+}
+
+.ico-correto-fill {
+  background-position: 0 -908px;
+  height: 130px;
+  width: 130px;
+}
+
+.ico-correto-txt {
+  background-position: 0 -1168px;
+  height: 130px;
+  width: 130px;
+}
+
+.ico-correto {
+  background-position: 0 -778px;
+  height: 130px;
+  width: 130px;
+}
+
+.ico-gota-left {
+  background-position: 0 -203px;
+  height: 55px;
+  width: 55px;
+}
+
+.ico-gota-right {
+  background-position: -37px -148px;
+  height: 55px;
+  width: 55px;
+}
+
+.ico-incorreto-empty {
+  background-position: 0 -648px;
+  height: 130px;
+  width: 130px;
+}
+
+.ico-incorreto-fill {
+  background-position: 0 -388px;
+  height: 130px;
+  width: 130px;
+}
+
+.ico-incorreto-txt {
+  background-position: 0 -518px;
+  height: 130px;
+  width: 130px;
+}
+
+.ico-incorreto {
+  background-position: 0 -258px;
+  height: 130px;
+  width: 130px;
+}
+
+.ico-tri-bl {
+  background-position: -74px -74px;
+  height: 37px;
+  width: 37px;
+}
+
+.ico-tri-br {
+  background-position: -37px -74px;
+  height: 37px;
+  width: 37px;
+}
+
+.ico-tri-tl {
+  background-position: 0 -74px;
+  height: 37px;
+  width: 37px;
+}
+
+.ico-tri-tr {
+  background-position: -74px -111px;
+  height: 37px;
+  width: 37px;
+}
+
+[class^="ico-"]:last-child,
+[class*=" ico-"]:last-child {
+  *margin-left: 0;
+}
+
+html {
+  font-size: 1em/1.5;
+  font-family: false, Arial, sans-serif;
+  overflow-y: scroll;
+  min-height: 100%;
+}
+
+.caecilia, .quizTitulo, .quizFrame .quizPergunta, .quizFrame .quizRespostas li {
+  font-family: "CaeciliaLTStd-Bold", Arial, sans-serif;
+}
+
+.wrapperQuiz {
+  width: 693px;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+}
+
+.quizTitulo {
+  font-size: 21px;
+  font-size: 1.3125rem;
+  color: #007e7a;
+}
+
+.quizFrame {
+  position: relative;
+}
+.quizFrame .quizImg {
+  background-color: red;
+  width: 693px;
+  height: 333px;
+  display: block;
+}
+.quizFrame .quizPergunta {
+  font-size: 26px;
+  font-size: 1.625rem;
+  background-color: #00b4cb;
+  color: white;
+  display: block;
+  margin: 0;
+  padding: 20px;
+}
+.quizFrame .quizRespostas {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.quizFrame .quizRespostas li {
+  font-size: 20px;
+  font-size: 1.25rem;
+  margin-bottom: 10px;
+  background-position: 20px 50%;
+  background-repeat: no-repeat;
+  background-color: #f7f7f7;
+  color: #00b4cb;
+  padding: 20px;
+  padding-left: 77px;
+}
+.quizFrame .quizRespostas li.a {
+  background-image: url('../images/sprites/ico/a.png?1369433111');
+}
+.quizFrame .quizRespostas li.a-fail {
+  background-image: url('../images/sprites/ico/a-fail.png?1369433159');
+  background-color: #d11142;
+  color: white;
+}
+.quizFrame .quizRespostas li.a-ok {
+  background-image: url('../images/sprites/ico/a-fail.png?1369433159');
+  background-color: #7ac142;
+  color: white;
+}
+.quizFrame .quizRespostas li.b {
+  background-image: url('../images/sprites/ico/b.png?1369432819');
+}
+.quizFrame .quizRespostas li.b-fail {
+  background-image: url('../images/sprites/ico/b-fail.png?1369432951');
+  background-color: #d11142;
+  color: white;
+}
+.quizFrame .quizRespostas li.b-ok {
+  background-image: url('../images/sprites/ico/b-fail.png?1369432951');
+  background-color: #7ac142;
+  color: white;
+}
+.quizFrame .quizRespostas li.c {
+  background-image: url('../images/sprites/ico/c.png?1369432770');
+}
+.quizFrame .quizRespostas li.c-fail {
+  background-image: url('../images/sprites/ico/c-fail.png?1369433072');
+  background-color: #d11142;
+  color: white;
+}
+.quizFrame .quizRespostas li.c-ok {
+  background-image: url('../images/sprites/ico/c-fail.png?1369433072');
+  background-color: #7ac142;
+  color: white;
+}
