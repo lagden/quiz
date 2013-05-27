@@ -1,3 +1,4 @@
 [submodule "Documents/js/greensock"]
-	path = Documents/js/greensock
-	url = git@github.com:greensock/GreenSock-JS.git
+    path = Documents/js/greensock
+    url = git@github.com:greensock/GreenSock-JS.git
+    ignore = untracked

@@ -4,7 +4,6 @@ components
 
 Documents/js/dist/*
 Documents/js/vendor/*
-Documents/js/greensock/*
 
 # Cpanel
 cgi-bin
