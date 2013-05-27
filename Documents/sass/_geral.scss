@@ -24,6 +24,7 @@ html{
 
 .quizFrame{
     position: relative;
+    overflow: hidden;
     .quizImg{
         width: $frameWidth;
         height: 333px;
@@ -74,7 +75,7 @@ html{
     }
 }
 
-.quizResultadoResposta {
+.quizResultadoResposta{
     // Way 1
     // $file: sprite-file($ico-sprites, 'correto-fill');
     // $width: image-width($file);
@@ -88,14 +89,13 @@ html{
     // Full
     // @include sprite-dimensions($ico-sprites, 'correto-fill');
 
-    @extend .tc;
-    @extend .caecilia;
-    @include attr-size('font-size', 16);
     @include attr-size('width', $width);
     @include attr-size('height', $height);
 
     @include attr-size('margin-left', -($width / 2));
     @include attr-size('margin-top', -($height / 2));
+
+    @extend .tc;
 
     position: absolute;
     top: 50%;
@@ -110,7 +110,124 @@ html{
         @include ico-sprite('correto-fill');
     }
     span{
+        @extend .caecilia;
+        @include attr-size('font-size', 16);
         position: relative;
         top: 85px;
+    }
+}
+
+.quizTip,
+.quizAtual{
+    @extend .tc;
+    position: absolute;
+    top: -5px;
+    color: $white;
+    span{
+        @extend .caecilia;
+        @include attr-size('font-size', 27);
+        position: relative;
+        top: 10px;
+    }
+}
+
+.quizAtual{
+    left: -5px;
+}
+
+.quizTip{
+    right: -5px;
+    cursor: pointer;
+}
+
+.quizTipBox{
+    @extend .bb;
+    @extend .caecilia;
+    @include attr-size('width', 225);
+    @include attr-size('font-size', 15);
+    @include attr-size('padding', 20);
+    @include attr-size('padding-top', ico-sprite-width('gota-right'));
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: $blue;
+    background-color: $white;
+    background-color: rgba($white, .9);
+}
+
+.quizShowResultado{
+    width: $frameWidth;
+    height: 333px;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    &.ok{
+        background-color: $blue;
+    }
+    &.fail{
+        background-color: $yellow;
+    }
+    $pad: 10px;
+    .tl, .tr,
+    .bl, .br{
+        position: absolute;
+    }
+    .tl{
+        top: $pad;
+        left: $pad;
+    }
+    .tr{
+        top: $pad;
+        right: $pad;
+    }
+    .bl{
+        bottom: $pad;
+        left: $pad;
+    }
+    .br{
+        bottom: $pad;
+        right: $pad;
+    }
+    table{
+        width: 100%;
+        height: 100%;
+        td{
+            height: 100%;
+        }
+    }
+    .txt{
+        @extend .caecilia;
+        @extend .tc;
+        width: 420px;
+        margin: 0 auto;
+        color: $white;
+        .pontos{
+            width: ico-sprite-width('correto-empty');
+            height: ico-sprite-height('correto-empty');
+            display: block;
+            margin: 0 auto;
+            &.fail{
+                @include ico-sprite('incorreto-empty');
+            }
+            &.ok{
+                @include ico-sprite('correto-empty');
+            }
+            div{
+                @include attr-size('font-size', 60);
+                @include attr-size('line-height', 20);
+                position: relative;
+                top: 45px;
+                span{
+                    @include attr-size('font-size', 16);
+                }
+            }
+        }
+        .tituloMsg{
+            @include attr-size('font-size', 37);
+        }
+        .corpoMsg{
+            @include attr-size('font-size', 28);
+        }
     }
 }

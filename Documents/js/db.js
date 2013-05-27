@@ -7,12 +7,36 @@ var db = {
     correto: {
         pt: 'Correto',
         en: '',
-        es: ''
+        es: '',
+        msg:{
+            titulo:{
+                pt: 'Parabéns!',
+                en: '',
+                es: ''
+            },
+            corpo:{
+                pt: 'Você conheçe tudo sobre a Vale!',
+                en: '',
+                es: ''
+            }
+        }
     },
     incorreto: {
         pt: 'Incorreto',
         en: '',
-        es: ''
+        es: '',
+        msg:{
+            titulo:{
+                pt: 'Pode melhorar...',
+                en: '',
+                es: ''
+            },
+            corpo:{
+                pt: 'Que tal aprender um pouco mais sobre a Vale?',
+                en: '',
+                es: ''
+            }
+        }
     },
     quiz: [{
         image: 'frame1.jpg',

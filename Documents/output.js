@@ -19639,12 +19639,36 @@ if ( typeof define === "function" && define.amd && define.amd.jQuery ) {
     correto: {
         pt: 'Correto',
         en: '',
-        es: ''
+        es: '',
+        msg:{
+            titulo:{
+                pt: 'Parabéns!',
+                en: '',
+                es: ''
+            },
+            corpo:{
+                pt: 'Você conheçe tudo sobre a Vale!',
+                en: '',
+                es: ''
+            }
+        }
     },
     incorreto: {
         pt: 'Incorreto',
         en: '',
-        es: ''
+        es: '',
+        msg:{
+            titulo:{
+                pt: 'Pode melhorar...',
+                en: '',
+                es: ''
+            },
+            corpo:{
+                pt: 'Que tal aprender um pouco mais sobre a Vale?',
+                en: '',
+                es: ''
+            }
+        }
     },
     quiz: [{
         image: 'frame1.jpg',
@@ -19735,6 +19759,19 @@ if ( typeof define === "function" && define.amd && define.amd.jQuery ) {
     }]
 };"use strict"
 
+// Avoid `console` errors in browsers that lack a console.
+if (!(window.console && console.log)) {
+    (function() {
+        var noop = function() {};
+        var methods = ['assert', 'clear', 'count', 'debug', 'dir', 'dirxml', 'error', 'exception', 'group', 'groupCollapsed', 'groupEnd', 'info', 'log', 'markTimeline', 'profile', 'profileEnd', 'markTimeline', 'table', 'time', 'timeEnd', 'timeStamp', 'trace', 'warn'];
+        var length = methods.length;
+        var console = window.console = {};
+        while (length--) {
+            console[methods[length]] = noop;
+        }
+    }());
+}
+
 var currLanguage = 'pt';
 
 $introducao = $('#quizIntroducao').text(db.introducao[currLanguage]);
@@ -19744,7 +19781,6 @@ function theQuiz(dados, lingua)
 {
     this.lingua = lingua || 'pt';
     this.totalPontos = 0;
-    // this.totalPerguntas = Object.keys(dados.quiz).length;
     this.dados = dados;
     this.quiz = dados.quiz;
     this.totalPerguntas = this.quiz.length;
@@ -19754,8 +19790,13 @@ function theQuiz(dados, lingua)
         img: this.$view.find('.quizImg:eq(0)'),
         pergunta: this.$view.find('.quizPergunta:eq(0)'),
         respostas: this.$view.find('.quizRespostas:eq(0)'),
-        resultado: $('#quizResultadoResposta')
-    }
+        resultado: $('#quizResultadoResposta'),
+        atual: $('#quizAtual'),
+        tipHandler: $('#quizTip'),
+        tipBox: $('#quizTipBox'),
+        show: $('#quizShowResultado'),
+        grupo: $('#quizGroupQuestion')
+    };
     this.opts = ['a','b','c'];
     this.isCorreto = false;
     this.init();
@@ -19764,6 +19805,16 @@ function theQuiz(dados, lingua)
 theQuiz.prototype.init = function() {
     this.build(this.curr);
     this.listener(true);
+
+    // Tip events
+    this.view.tipHandler.on('mouseenter mouseleave', {"box": this.view.tipBox}, function(ev){
+        var box = ev.data.box;
+        if(ev.type == 'mouseenter')
+            TweenMax.to(box, .5, {opacity: 1, right: 0});
+        else
+            TweenMax.to(box, .5, {opacity: 0, right: '-225px'});
+    })
+    .trigger('mouseleave');
 };
 
 theQuiz.prototype.listener = function(chave) {
@@ -19822,10 +19873,21 @@ theQuiz.prototype.after = function(that) {
 
 theQuiz.prototype.showResult = function() {
     console.log('showResult');
+    var media =  Math.ceil(this.totalPerguntas / 2);
+    var css = (this.totalPontos > media) ? 'ok' : 'fail';
+    var tituloMsg = (this.totalPontos > media) ? this.dados.correto.msg.titulo[this.lingua] : this.dados.incorreto.msg.titulo[this.lingua];
+    var corpoMsg = (this.totalPontos > media) ? this.dados.correto.msg.corpo[this.lingua] : this.dados.incorreto.msg.corpo[this.lingua];
+    this.view.show.find('.txt:eq(0) > .pontos:eq(0)').addClass(css).html('<div>' + this.totalPontos + '<br><span>pontos</span></div>')
+    this.view.show.find('.txt:eq(0) > .tituloMsg:eq(0)').text(tituloMsg);
+    this.view.show.find('.txt:eq(0) > .corpoMsg:eq(0)').text(corpoMsg);
+    this.view.show.css({opacity: 0}).removeClass('hidden ok fail').addClass(css);
+    TweenMax.to(this.view.show, 1, {opacity: 1});
+    TweenMax.to(this.view.grupo, 1, {opacity: 0});
 }
 
 theQuiz.prototype.build = function(pos) {
     var that = this;
+    this.view.atual.find('span').text(pos+1);
     this.view.img.get(0).src = '../Documents/images/'+this.quiz[pos].image;
     this.view.pergunta.text(this.quiz[pos].pergunta[this.lingua]);
     this.view.respostas.children('li').each(function(k, v) {
@@ -19839,6 +19901,19 @@ theQuiz.prototype.build = function(pos) {
 
         $resposta.removeClass('ok').removeClass('fail');
     });
+
+    if(this.quiz[pos].tip)
+    {
+        this.view.tipHandler.removeClass('hidden');
+        this.view.tipBox
+        .removeClass('hidden')
+        .text(this.quiz[pos].tip[this.lingua]);
+    }
+    else
+    {
+        this.view.tipHandler.addClass('hidden');
+        this.view.tipBox.addClass('hidden');
+    }
 };
 
 var valeTheQuiz = new theQuiz(db, currLanguage);

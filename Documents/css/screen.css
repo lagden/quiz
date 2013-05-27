@@ -8,8 +8,8 @@
   padding: 0;
 }
 
-.ico-sprite, .ico-a-fail-fill, .ico-a-fail, .ico-a-ok-fill, .ico-a-ok, .ico-a, .ico-b-fail-fill, .ico-b-fail, .ico-b-ok-fill, .ico-b-ok, .ico-b, .ico-c-fail-fill, .ico-c-fail, .ico-c-ok-fill, .ico-c-ok, .ico-c, .ico-correto-empty, .ico-correto-fill, .ico-correto-txt, .ico-correto, .ico-gota-left, .ico-gota-right, .ico-incorreto-empty, .ico-incorreto-fill, .ico-incorreto-txt, .ico-incorreto, .ico-tri-bl, .ico-tri-br, .ico-tri-tl, .ico-tri-tr, .quizResultadoResposta.fail, .quizResultadoResposta.ok {
-  background: url('../images/sprites/ico-s641696978b.png') no-repeat;
+.ico-sprite, .ico-a-fail-fill, .ico-a-fail, .ico-a-ok-fill, .ico-a-ok, .ico-a, .ico-b-fail-fill, .ico-b-fail, .ico-b-ok-fill, .ico-b-ok, .ico-b, .ico-c-fail-fill, .ico-c-fail, .ico-c-ok-fill, .ico-c-ok, .ico-c, .ico-correto-empty, .ico-correto-fill, .ico-correto-txt, .ico-correto, .ico-gota-left, .ico-gota-right, .ico-incorreto-empty, .ico-incorreto-fill, .ico-incorreto-txt, .ico-incorreto, .ico-tri-bl, .ico-tri-br, .ico-tri-tl, .ico-tri-tr, .quizResultadoResposta.fail, .quizResultadoResposta.ok, .quizShowResultado .txt .pontos.fail, .quizShowResultado .txt .pontos.ok {
+  background: url('../images/sprites/ico-s845d753d3a.png') no-repeat;
 }
 
 .ico-a-fail-fill {
@@ -198,7 +198,8 @@ html {
   min-height: 100%;
 }
 
-.caecilia, .quizTitulo, .quizFrame .quizPergunta, .quizFrame .quizRespostas li, .quizResultadoResposta {
+.caecilia, .quizTitulo, .quizFrame .quizPergunta, .quizFrame .quizRespostas li, .quizResultadoResposta span, .quizTip span,
+.quizAtual span, .quizTipBox, .quizShowResultado .txt {
   font-family: "CaeciliaLTStd-Bold", Arial, sans-serif;
 }
 
@@ -217,6 +218,7 @@ html {
 
 .quizFrame {
   position: relative;
+  overflow: hidden;
 }
 .quizFrame .quizImg {
   width: 693px;
@@ -290,8 +292,6 @@ html {
 }
 
 .quizResultadoResposta {
-  font-size: 16px;
-  font-size: 1rem;
   width: 130px;
   width: 8.125rem;
   height: 130px;
@@ -313,8 +313,129 @@ html {
   background-position: 0 -1112px;
 }
 .quizResultadoResposta span {
+  font-size: 16px;
+  font-size: 1rem;
   position: relative;
   top: 85px;
+}
+
+.quizTip,
+.quizAtual {
+  position: absolute;
+  top: -5px;
+  color: white;
+}
+.quizTip span,
+.quizAtual span {
+  font-size: 27px;
+  font-size: 1.6875rem;
+  position: relative;
+  top: 10px;
+}
+
+.quizAtual {
+  left: -5px;
+}
+
+.quizTip {
+  right: -5px;
+  cursor: pointer;
+}
+
+.quizTipBox {
+  width: 225px;
+  width: 14.0625rem;
+  font-size: 15px;
+  font-size: 0.9375rem;
+  padding: 20px;
+  padding: 1.25rem;
+  padding-top: 55px;
+  padding-top: 3.4375rem;
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: #00b4cb;
+  background-color: white;
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.quizShowResultado {
+  width: 693px;
+  height: 333px;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.quizShowResultado.ok {
+  background-color: #00b4cb;
+}
+.quizShowResultado.fail {
+  background-color: #ecb11f;
+}
+.quizShowResultado .tl, .quizShowResultado .tr,
+.quizShowResultado .bl, .quizShowResultado .br {
+  position: absolute;
+}
+.quizShowResultado .tl {
+  top: 10px;
+  left: 10px;
+}
+.quizShowResultado .tr {
+  top: 10px;
+  right: 10px;
+}
+.quizShowResultado .bl {
+  bottom: 10px;
+  left: 10px;
+}
+.quizShowResultado .br {
+  bottom: 10px;
+  right: 10px;
+}
+.quizShowResultado table {
+  width: 100%;
+  height: 100%;
+}
+.quizShowResultado table td {
+  height: 100%;
+}
+.quizShowResultado .txt {
+  width: 420px;
+  margin: 0 auto;
+  color: white;
+}
+.quizShowResultado .txt .pontos {
+  width: 130px;
+  height: 130px;
+  display: block;
+  margin: 0 auto;
+}
+.quizShowResultado .txt .pontos.fail {
+  background-position: 0 -722px;
+}
+.quizShowResultado .txt .pontos.ok {
+  background-position: 0 -1242px;
+}
+.quizShowResultado .txt .pontos div {
+  font-size: 60px;
+  font-size: 3.75rem;
+  line-height: 20px;
+  line-height: 1.25rem;
+  position: relative;
+  top: 45px;
+}
+.quizShowResultado .txt .pontos div span {
+  font-size: 16px;
+  font-size: 1rem;
+}
+.quizShowResultado .txt .tituloMsg {
+  font-size: 37px;
+  font-size: 2.3125rem;
+}
+.quizShowResultado .txt .corpoMsg {
+  font-size: 28px;
+  font-size: 1.75rem;
 }
 
 .ir {
@@ -353,7 +474,7 @@ html {
   visibility: hidden;
 }
 
-.bb {
+.bb, .quizTipBox {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -384,6 +505,7 @@ html {
   text-align: right;
 }
 
-.tc, .quizResultadoResposta {
+.tc, .quizResultadoResposta, .quizTip,
+.quizAtual, .quizShowResultado .txt {
   text-align: center;
 }
