@@ -1,3 +1,5 @@
+@import "compass/utilities/sprites/base";
+
 // Helpers
 %complemento{
     @include inline-block;
@@ -8,6 +10,7 @@
 
 // Ico
 $ico-layout: smart;
+$ico-sprites-dimensions: true;
 @import "sprites/ico/*.png";
 @include all-ico-sprites(true);
 [class^="ico-"],
