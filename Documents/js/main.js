@@ -44,8 +44,7 @@ function theQuiz(dados, lingua)
 };
 
 theQuiz.prototype.init = function() {
-    this.build(this.curr);
-    this.listener(true);
+    this.reset();
 
     // Tip events
     this.view.tipHandler.on('mouseenter mouseleave', {"box": this.view.tipBox}, function(ev){
@@ -56,12 +55,24 @@ theQuiz.prototype.init = function() {
             TweenMax.to(box, .5, {opacity: 0, right: '-225px'});
     })
     .trigger('mouseleave');
+
+    // this.view.show.on('click', {"that": this}, function(ev){
+    //     ev.data.that.reset();
+    // });
 };
+
+theQuiz.prototype.reset = function() {
+    this.totalPontos = this.curr = 0;
+    this.build(this.curr);
+    this.listener(true);
+    this.view.show.removeClass('ok fail').addClass('hidden');
+    this.view.grupo.css({opacity: 1});
+    this.view.resultado.css({opacity: 0});
+}
 
 theQuiz.prototype.listener = function(chave) {
     var that = this;
     chave = chave || false;
-    console.log(chave);
     (chave)
     ? this.view.respostas.on('click', '> li', {"that": that}, that.responde)
     : this.view.respostas.off('click', '> li', that.responde)
@@ -113,14 +124,14 @@ theQuiz.prototype.after = function(that) {
 };
 
 theQuiz.prototype.showResult = function() {
-    console.log('showResult');
     var media =  Math.ceil(this.totalPerguntas / 2);
     var css = (this.totalPontos > media) ? 'ok' : 'fail';
     var tituloMsg = (this.totalPontos > media) ? this.dados.correto.msg.titulo[this.lingua] : this.dados.incorreto.msg.titulo[this.lingua];
     var corpoMsg = (this.totalPontos > media) ? this.dados.correto.msg.corpo[this.lingua] : this.dados.incorreto.msg.corpo[this.lingua];
-    this.view.show.find('.txt:eq(0) > .pontos:eq(0)').addClass(css).html('<div>' + this.totalPontos + '<br><span>pontos</span></div>')
+    var pontos = (this.totalPontos > 1) ? 'pontos' : 'ponto';
+    this.view.show.find('.txt:eq(0) > .pontos:eq(0)').addClass(css).html('<div>' + this.totalPontos + '<br><span>' + pontos + '</span></div>')
     this.view.show.find('.txt:eq(0) > .tituloMsg:eq(0)').text(tituloMsg);
-    this.view.show.find('.txt:eq(0) > .corpoMsg:eq(0)').text(corpoMsg);
+    this.view.show.find('.txt:eq(0) > .corpoMsg:eq(0)').html(corpoMsg);
     this.view.show.css({opacity: 0}).removeClass('hidden ok fail').addClass(css);
     TweenMax.to(this.view.show, 1, {opacity: 1});
     TweenMax.to(this.view.grupo, 1, {opacity: 0});

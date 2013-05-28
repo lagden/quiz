@@ -32,7 +32,7 @@ var db = {
                 es: ''
             },
             corpo:{
-                pt: 'Que tal aprender um pouco mais sobre a Vale?',
+                pt: 'Que tal aprender um pouco mais sobre a Vale? <a href="#conheca">Conheça mais sobre a Vale</a>',
                 en: '',
                 es: ''
             }

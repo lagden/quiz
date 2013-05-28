@@ -227,7 +227,15 @@ html{
             @include attr-size('font-size', 37);
         }
         .corpoMsg{
-            @include attr-size('font-size', 28);
+            @include attr-size('font-size', 27);
+            a{
+                @include attr-size('font-size', 16);
+                @include attr-size('padding', 10);
+                @include inline-block;
+                color: $white;
+                background-color: $darkgreen;
+                text-decoration: none;
+            }
         }
     }
 }

@@ -434,8 +434,20 @@ html {
   font-size: 2.3125rem;
 }
 .quizShowResultado .txt .corpoMsg {
-  font-size: 28px;
-  font-size: 1.75rem;
+  font-size: 27px;
+  font-size: 1.6875rem;
+}
+.quizShowResultado .txt .corpoMsg a {
+  font-size: 16px;
+  font-size: 1rem;
+  padding: 10px;
+  padding: 0.625rem;
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  color: white;
+  background-color: #007e7a;
+  text-decoration: none;
 }
 
 .ir {
