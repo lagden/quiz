@@ -1,7 +1,7 @@
 Quiz!!
 ======
 
-Este é um quiz da Vale feito em 3 línguas utilizando em HTML + Javascript + CSS.
+Este é um quiz da Vale feito em 3 línguas utilizando `HTML` + `Javascript` + `CSS`.
 
 Instalação local
 ----------------
@@ -25,12 +25,15 @@ Instalação local
 ###Executar local###
     
     grunt watch
+
+    ou apenas
+
+    grunt
     
 
 Como publicar na Vale
 ---------------------
 
-Execute apenas o `grunt` para gerar o `output.js`.  
 E faça o upload dos arquivos para: 
 
 [Vale Site Manager](https://intranet.valeglobal.net/pt-br/oquefazemos/_layouts/sitemanager.aspx?Source=%2Fpt-br%2Foquefazemos%2FPaginas%2Fquiz-das-operacoes%2Easpx&Filter=1&FilterOnly=1)
@@ -41,6 +44,3 @@ E faça o upload dos arquivos para:
 + `images/*`
 
 Crie uma `Webpart` dentro da página e link para o arquivo `pt_en_es.html`.
-
-
-
