@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <title>Quiz</title>
+        <link href="https://intranet.valeglobal.net/pt-br/oquefazemos/Documents/css/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+        <div class="wrapperQuiz">
+            <p id="quizIntroducao"></p>
+            <div id="quizFrame" class="quizFrame">
+                <div class="quizGroup relative">
+                    <img src="../Documents/images/blank.gif" alt="" class="quizImg">
+                    <!-- Tips -->
+                    <!-- Resposta -->
+                    <div id="quizResultadoResposta" class="quizResultadoResposta">
+                        <span></span>
+                    </div>
+                    <div id="quizAtual" class="quizAtual ico-gota-left">
+                        <span>1</span>
+                    </div>
+                    <div id="quizTipBox" class="quizTipBox">
+                        This is a awesome tip for you answer the  question below!!
+                    </div>
+                    <div id="quizTip" class="quizTip ico-gota-right">
+                        <span>?</span>
+                    </div>
+                    <div id="quizShowResultado" class="quizShowResultado hidden">
+                        <div class="ico-tri-tl tl"></div>
+                        <div class="ico-tri-tr tr"></div>
+                        <div class="ico-tri-bl bl"></div>
+                        <div class="ico-tri-br br"></div>
+                        <table>
+                            <tr>
+                                <td>
+                                    <div class="txt">
+                                        <div class="pontos fail">
+                                            <div></div>
+                                        </div>
+                                        <div class="tituloMsg"></div>
+                                        <div class="corpoMsg"></div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div id="quizGroupQuestion" class="quizGroupQuestion">
+                    <h3 class="quizPergunta"></h3>
+                    <ul class="quizRespostas">
+                        <li class="a"></li>
+                        <li class="b"></li>
+                        <li class="c"></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <script>window.jQuery || document.write('<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"><\/script>')</script>
+        <script type="text/javascript">
+            var pathImg = 'https://intranet.valeglobal.net/pt-br/oquefazemos/Documents/images/';
+        </script>
+        <script src="https://intranet.valeglobal.net/pt-br/oquefazemos/Documents/output.js" type="text/javascript"></script>
+    </body>
+</html>

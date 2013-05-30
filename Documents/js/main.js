@@ -16,8 +16,9 @@ var currLanguage = String(document.documentElement.lang).split('-')[0] || 'pt';
 $introducao = $('#quizIntroducao').text(db.introducao[currLanguage]);
 
 // Quiz
-function theQuiz(dados, lingua)
+function theQuiz(dados, lingua, path)
 {
+    this.path = path || '../Documents/images/';
     this.lingua = lingua || 'pt';
     this.totalPontos = 0;
     this.dados = dados;
@@ -138,7 +139,7 @@ theQuiz.prototype.showResult = function() {
 theQuiz.prototype.build = function(pos) {
     var that = this;
     this.view.atual.find('span').text(pos+1);
-    this.view.img.get(0).src = '../Documents/images/'+this.quiz[pos].image;
+    this.view.img.get(0).src = this.path + this.quiz[pos].image;
     this.view.pergunta.text(this.quiz[pos].pergunta[this.lingua]);
     this.view.respostas.children('li').each(function(k, v) {
         var $resposta = $(v);
@@ -167,4 +168,4 @@ theQuiz.prototype.build = function(pos) {
 };
 
 // executa o quiz
-var valeTheQuiz = new theQuiz(db, currLanguage);
+var valeTheQuiz = new theQuiz(db, currLanguage, pathImg);

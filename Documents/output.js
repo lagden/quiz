@@ -1,7 +1,7 @@
-/*! Quiz - v0.1.0 - 2013-05-30 */function theQuiz(a, b) {
-    this.lingua = b || "pt", this.totalPontos = 0, this.dados = a, this.quiz = a.quiz, 
-    this.totalPerguntas = this.quiz.length, this.curr = 0, this.$view = $("#quizFrame"), 
-    this.view = {
+/*! Quiz - v0.1.0 - 2013-05-30 */function theQuiz(a, b, c) {
+    this.path = c || "../Documents/images/", this.lingua = b || "pt", this.totalPontos = 0, 
+    this.dados = a, this.quiz = a.quiz, this.totalPerguntas = this.quiz.length, this.curr = 0, 
+    this.$view = $("#quizFrame"), this.view = {
         img: this.$view.find(".quizImg:eq(0)"),
         pergunta: this.$view.find(".quizPergunta:eq(0)"),
         respostas: this.$view.find(".quizRespostas:eq(0)"),
@@ -3247,7 +3247,7 @@ $introducao = $("#quizIntroducao").text(db.introducao[currLanguage]), theQuiz.pr
     });
 }, theQuiz.prototype.build = function(a) {
     var b = this;
-    this.view.atual.find("span").text(a + 1), this.view.img.get(0).src = "../Documents/images/" + this.quiz[a].image, 
+    this.view.atual.find("span").text(a + 1), this.view.img.get(0).src = this.path + this.quiz[a].image, 
     this.view.pergunta.text(this.quiz[a].pergunta[this.lingua]), this.view.respostas.children("li").each(function(c, d) {
         var e = $(d);
         e.text(b.quiz[a].respostas[b.opts[c]][b.lingua]), e.data("letra", b.opts[c]), b.quiz[a].correta == b.opts[c] ? e.data("ok", !0) : e.data("ok", !1), 
@@ -3256,4 +3256,4 @@ $introducao = $("#quizIntroducao").text(db.introducao[currLanguage]), theQuiz.pr
     this.view.tipBox.addClass("hidden"));
 };
 
-var valeTheQuiz = new theQuiz(db, currLanguage);
+var valeTheQuiz = new theQuiz(db, currLanguage, pathImg);
