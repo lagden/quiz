@@ -34,8 +34,8 @@ module.exports = function(grunt) {
       },
       watch: {
         src: [
-            'js/dist/frameworks.js'
-          , 'js/dist/others.js'
+            // 'js/dist/frameworks.js' // o jquery já está na página
+            'js/dist/others.js'
           , 'js/dist/base.js'
         ],
         dest: 'output.js'

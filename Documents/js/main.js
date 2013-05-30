@@ -1,5 +1,3 @@
-"use strict"
-
 // Avoid `console` errors in browsers that lack a console.
 if (!(window.console && console.log)) {
     (function() {
@@ -13,7 +11,7 @@ if (!(window.console && console.log)) {
     }());
 }
 
-var currLanguage = 'pt';
+var currLanguage = String(document.documentElement.lang).split('-')[0] || 'pt';
 
 $introducao = $('#quizIntroducao').text(db.introducao[currLanguage]);
 
@@ -168,4 +166,5 @@ theQuiz.prototype.build = function(pos) {
     }
 };
 
+// executa o quiz
 var valeTheQuiz = new theQuiz(db, currLanguage);
