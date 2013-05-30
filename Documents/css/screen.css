@@ -8,180 +8,120 @@
   padding: 0;
 }
 
-.ico-sprite, .ico-a-fail-fill, .ico-a-fail, .ico-a-ok-fill, .ico-a-ok, .ico-a, .ico-b-fail-fill, .ico-b-fail, .ico-b-ok-fill, .ico-b-ok, .ico-b, .ico-c-fail-fill, .ico-c-fail, .ico-c-ok-fill, .ico-c-ok, .ico-c, .ico-correto-empty, .ico-correto-fill, .ico-correto-txt, .ico-correto, .ico-gota-left, .ico-gota-right, .ico-incorreto-empty, .ico-incorreto-fill, .ico-incorreto-txt, .ico-incorreto, .ico-tri-bl, .ico-tri-br, .ico-tri-tl, .ico-tri-tr, .quizResultadoResposta.fail, .quizResultadoResposta.ok, .quizShowResultado .txt .pontos.fail, .quizShowResultado .txt .pontos.ok {
-  background: url('../images/sprites/ico-s845d753d3a.png') no-repeat;
-}
-
-.ico-a-fail-fill {
-  background-position: 0 -222px;
-  height: 37px;
-  width: 37px;
+.ico-sprite, .ico-a-fail, .ico-a-ok, .ico-a, .ico-b-fail, .ico-b-ok, .ico-b, .ico-c-fail, .ico-c-ok, .ico-c, .ico-correto-empty, .ico-correto-fill, .ico-gota-left, .ico-gota-right, .ico-incorreto-empty, .ico-incorreto-fill, .ico-tri-bl, .ico-tri-br, .ico-tri-tl, .ico-tri-tr, .quizResultadoResposta.fail, .quizResultadoResposta.ok, .quizShowResultado .txt .pontos.fail, .quizShowResultado .txt .pontos.ok {
+  background: url('../images/sprites/ico-sc8300af8ec.png') no-repeat;
 }
 
 .ico-a-fail {
-  background-position: 0 -37px;
-  height: 37px;
-  width: 37px;
-}
-
-.ico-a-ok-fill {
-  background-position: -37px -37px;
+  background-position: 0 -148px;
   height: 37px;
   width: 37px;
 }
 
 .ico-a-ok {
-  background-position: 0 0;
+  background-position: 0 -37px;
   height: 37px;
   width: 37px;
 }
 
 .ico-a {
-  background-position: -37px 0;
-  height: 37px;
-  width: 37px;
-}
-
-.ico-b-fail-fill {
-  background-position: -74px 0;
+  background-position: -37px -37px;
   height: 37px;
   width: 37px;
 }
 
 .ico-b-fail {
-  background-position: -74px -37px;
-  height: 37px;
-  width: 37px;
-}
-
-.ico-b-ok-fill {
-  background-position: 0 -111px;
+  background-position: 0 0;
   height: 37px;
   width: 37px;
 }
 
 .ico-b-ok {
-  background-position: -37px -111px;
+  background-position: -37px 0;
   height: 37px;
   width: 37px;
 }
 
 .ico-b {
-  background-position: 0 -74px;
-  height: 37px;
-  width: 37px;
-}
-
-.ico-c-fail-fill {
-  background-position: -37px -74px;
+  background-position: -74px 0;
   height: 37px;
   width: 37px;
 }
 
 .ico-c-fail {
-  background-position: -74px -74px;
-  height: 37px;
-  width: 37px;
-}
-
-.ico-c-ok-fill {
-  background-position: -74px -111px;
+  background-position: -74px -37px;
   height: 37px;
   width: 37px;
 }
 
 .ico-c-ok {
-  background-position: 0 -185px;
+  background-position: 0 -111px;
   height: 37px;
   width: 37px;
 }
 
 .ico-c {
-  background-position: -74px -185px;
+  background-position: -37px -111px;
   height: 37px;
   width: 37px;
 }
 
 .ico-correto-empty {
-  background-position: 0 -1242px;
+  background-position: 0 -648px;
   height: 130px;
   width: 130px;
 }
 
 .ico-correto-fill {
-  background-position: 0 -1112px;
-  height: 130px;
-  width: 130px;
-}
-
-.ico-correto-txt {
-  background-position: 0 -982px;
-  height: 130px;
-  width: 130px;
-}
-
-.ico-correto {
-  background-position: 0 -852px;
+  background-position: 0 -518px;
   height: 130px;
   width: 130px;
 }
 
 .ico-gota-left {
-  background-position: 0 -277px;
+  background-position: 0 -203px;
   height: 55px;
   width: 55px;
 }
 
 .ico-gota-right {
-  background-position: -37px -222px;
+  background-position: -37px -148px;
   height: 55px;
   width: 55px;
 }
 
 .ico-incorreto-empty {
-  background-position: 0 -722px;
+  background-position: 0 -258px;
   height: 130px;
   width: 130px;
 }
 
 .ico-incorreto-fill {
-  background-position: 0 -462px;
-  height: 130px;
-  width: 130px;
-}
-
-.ico-incorreto-txt {
-  background-position: 0 -592px;
-  height: 130px;
-  width: 130px;
-}
-
-.ico-incorreto {
-  background-position: 0 -332px;
+  background-position: 0 -388px;
   height: 130px;
   width: 130px;
 }
 
 .ico-tri-bl {
-  background-position: -37px -185px;
+  background-position: 0 -74px;
   height: 37px;
   width: 37px;
 }
 
 .ico-tri-br {
-  background-position: -74px -148px;
+  background-position: -74px -74px;
   height: 37px;
   width: 37px;
 }
 
 .ico-tri-tl {
-  background-position: -37px -148px;
+  background-position: -37px -74px;
   height: 37px;
   width: 37px;
 }
 
 .ico-tri-tr {
-  background-position: 0 -148px;
+  background-position: -74px -111px;
   height: 37px;
   width: 37px;
 }
@@ -307,10 +247,10 @@ html {
   color: white;
 }
 .quizResultadoResposta.fail {
-  background-position: 0 -462px;
+  background-position: 0 -388px;
 }
 .quizResultadoResposta.ok {
-  background-position: 0 -1112px;
+  background-position: 0 -518px;
 }
 .quizResultadoResposta span {
   font-size: 16px;
@@ -412,10 +352,10 @@ html {
   margin: 0 auto;
 }
 .quizShowResultado .txt .pontos.fail {
-  background-position: 0 -722px;
+  background-position: 0 -258px;
 }
 .quizShowResultado .txt .pontos.ok {
-  background-position: 0 -1242px;
+  background-position: 0 -648px;
 }
 .quizShowResultado .txt .pontos div {
   font-size: 60px;
