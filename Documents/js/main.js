@@ -90,10 +90,21 @@ theQuiz.prototype.responde = function(ev)
     (that.isCorreto)
     ? $el.addClass('ok')
     : $el.addClass('fail');
+
+    // Mostra o correto
+    if($el.hasClass('fail'))
+    {
+        that.view.respostas.find('> li').filter(function(){
+            return $(this).data("ok") == true;
+        })
+        .addClass('ok');
+    };
+
     that.next();
 }
 
-theQuiz.prototype.next = function() {
+theQuiz.prototype.next = function(el) {
+    el = el || false;
     var that = this;
     this.listener();
     if(this.isCorreto)

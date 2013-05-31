@@ -3402,17 +3402,20 @@ $introducao = $("#quizIntroducao").text(db.introducao[currLanguage]), theQuiz.pr
     a.preventDefault();
     var b = a.data.that, c = $(this);
     b.isCorreto = c.data("ok"), b.isCorreto ? c.addClass("ok") : c.addClass("fail"), 
-    b.next();
-}, theQuiz.prototype.next = function() {
-    var a = this;
+    c.hasClass("fail") && b.view.respostas.find("> li").filter(function() {
+        return 1 == $(this).data("ok");
+    }).addClass("ok"), b.next();
+}, theQuiz.prototype.next = function(a) {
+    a = a || !1;
+    var b = this;
     this.listener(), this.isCorreto ? (this.totalPontos++, this.view.resultado.removeClass("fail").addClass("ok").find("span").text(this.dados.correto[this.lingua])) : this.view.resultado.removeClass("ok").addClass("fail").find("span").text(this.dados.incorreto[this.lingua]), 
     TweenMax.to(this.view.resultado, .5, {
         opacity: 1
     }), TweenMax.from(this.view.resultado, 1, {
         top: "-50%",
         ease: Bounce.easeOut,
-        onComplete: a.after,
-        onCompleteParams: [ a ]
+        onComplete: b.after,
+        onCompleteParams: [ b ]
     });
 }, theQuiz.prototype.after = function(a) {
     a.curr < a.totalPerguntas - 1 ? (a.curr++, TweenMax.to(a.view.resultado, .5, {
