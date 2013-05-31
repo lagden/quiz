@@ -55,6 +55,10 @@ theQuiz.prototype.init = function() {
     })
     .trigger('mouseleave');
 
+    this.view.tipBox
+    .css({opacity: 0})
+    .removeClass('hidden');
+
     // this.view.show.on('click', {"that": this}, function(ev){
     //     ev.data.that.reset();
     // });

@@ -1,4 +1,4 @@
-/*! Quiz - v0.1.0 - 2013-05-30 */function theQuiz(a, b, c) {
+/*! Quiz - v0.1.0 - 2013-05-31 */function theQuiz(a, b, c) {
     this.path = c || "../Documents/images/", this.lingua = b || "pt", this.totalPontos = 0, 
     this.dados = a, this.quiz = a.quiz, this.totalPerguntas = this.quiz.length, this.curr = 0, 
     this.$view = $("#quizFrame"), this.view = {
@@ -3197,7 +3197,9 @@ $introducao = $("#quizIntroducao").text(db.introducao[currLanguage]), theQuiz.pr
             opacity: 0,
             right: "-225px"
         });
-    }).trigger("mouseleave");
+    }).trigger("mouseleave"), this.view.tipBox.css({
+        opacity: 0
+    }).removeClass("hidden");
 }, theQuiz.prototype.reset = function() {
     this.totalPontos = this.curr = 0, this.build(this.curr), this.listener(!0), this.view.show.removeClass("ok fail").addClass("hidden"), 
     this.view.grupo.css({
