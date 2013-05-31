@@ -22,6 +22,8 @@ module.exports = function(grunt) {
           , 'js/greensock/src/uncompressed/TimelineMax.js'
           , 'js/greensock/src/uncompressed/TweenMax.js'
           , 'js/greensock/src/uncompressed/jquery.gsap.js'
+          // , 'components/imagesloaded/imagesloaded.js' // versão do bower não está funcionando
+          , 'js/imagesloaded/imagesloaded.pkgd.js'
         ],
         dest: 'js/dist/others.js'
       },

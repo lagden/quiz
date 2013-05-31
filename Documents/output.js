@@ -14,6 +14,10 @@
     }, this.opts = [ "a", "b", "c" ], this.isCorreto = !1, this.init();
 }
 
+function runQuiz() {
+    valeTheQuiz = new theQuiz(db, currLanguage, pathImg);
+}
+
 (window._gsQueue || (window._gsQueue = [])).push(function() {
     "use strict";
     window._gsDefine("plugins.CSSPlugin", [ "plugins.TweenPlugin", "TweenLite" ], function(a, b) {
@@ -2958,7 +2962,189 @@
         },
         version: "0.1.6"
     };
-}(jQuery);
+}(jQuery), function(a) {
+    "use strict";
+    function b() {}
+    function c(a, b) {
+        if (e) return b.indexOf(a);
+        for (var c = b.length; c--; ) if (b[c] === a) return c;
+        return -1;
+    }
+    var d = b.prototype, e = Array.prototype.indexOf ? !0 : !1;
+    d._getEvents = function() {
+        return this._events || (this._events = {});
+    }, d.getListeners = function(a) {
+        var b, c, d = this._getEvents();
+        if ("object" == typeof a) {
+            b = {};
+            for (c in d) d.hasOwnProperty(c) && a.test(c) && (b[c] = d[c]);
+        } else b = d[a] || (d[a] = []);
+        return b;
+    }, d.getListenersAsObject = function(a) {
+        var b, c = this.getListeners(a);
+        return c instanceof Array && (b = {}, b[a] = c), b || c;
+    }, d.addListener = function(a, b) {
+        var d, e = this.getListenersAsObject(a);
+        for (d in e) e.hasOwnProperty(d) && -1 === c(b, e[d]) && e[d].push(b);
+        return this;
+    }, d.on = d.addListener, d.defineEvent = function(a) {
+        return this.getListeners(a), this;
+    }, d.defineEvents = function(a) {
+        for (var b = 0; b < a.length; b += 1) this.defineEvent(a[b]);
+        return this;
+    }, d.removeListener = function(a, b) {
+        var d, e, f = this.getListenersAsObject(a);
+        for (e in f) f.hasOwnProperty(e) && (d = c(b, f[e]), -1 !== d && f[e].splice(d, 1));
+        return this;
+    }, d.off = d.removeListener, d.addListeners = function(a, b) {
+        return this.manipulateListeners(!1, a, b);
+    }, d.removeListeners = function(a, b) {
+        return this.manipulateListeners(!0, a, b);
+    }, d.manipulateListeners = function(a, b, c) {
+        var d, e, f = a ? this.removeListener : this.addListener, g = a ? this.removeListeners : this.addListeners;
+        if ("object" != typeof b || b instanceof RegExp) for (d = c.length; d--; ) f.call(this, b, c[d]); else for (d in b) b.hasOwnProperty(d) && (e = b[d]) && ("function" == typeof e ? f.call(this, d, e) : g.call(this, d, e));
+        return this;
+    }, d.removeEvent = function(a) {
+        var b, c = typeof a, d = this._getEvents();
+        if ("string" === c) delete d[a]; else if ("object" === c) for (b in d) d.hasOwnProperty(b) && a.test(b) && delete d[b]; else delete this._events;
+        return this;
+    }, d.emitEvent = function(a, b) {
+        var c, d, e, f = this.getListenersAsObject(a);
+        for (d in f) if (f.hasOwnProperty(d)) for (c = f[d].length; c--; ) e = b ? f[d][c].apply(null, b) : f[d][c](), 
+        e === !0 && this.removeListener(a, f[d][c]);
+        return this;
+    }, d.trigger = d.emitEvent, d.emit = function(a) {
+        var b = Array.prototype.slice.call(arguments, 1);
+        return this.emitEvent(a, b);
+    }, "function" == typeof define && define.amd ? define(function() {
+        return b;
+    }) : a.EventEmitter = b;
+}(this), function(a) {
+    "use strict";
+    var b = document.documentElement, c = function() {};
+    b.addEventListener ? c = function(a, b, c) {
+        a.addEventListener(b, c, !1);
+    } : b.attachEvent && (c = function(b, c, d) {
+        b[c + d] = d.handleEvent ? function() {
+            var b = a.event;
+            b.target = b.target || b.srcElement, d.handleEvent.call(d, b);
+        } : function() {
+            var c = a.event;
+            c.target = c.target || c.srcElement, d.call(b, c);
+        }, b.attachEvent("on" + c, b[c + d]);
+    });
+    var d = function() {};
+    b.removeEventListener ? d = function(a, b, c) {
+        a.removeEventListener(b, c, !1);
+    } : b.detachEvent && (d = function(a, b, c) {
+        a.detachEvent("on" + b, a[b + c]);
+        try {
+            delete a[b + c];
+        } catch (d) {
+            a[b + c] = void 0;
+        }
+    });
+    var e = {
+        bind: c,
+        unbind: d
+    };
+    "function" == typeof define && define.amd ? define(e) : a.eventie = e;
+}(this), function(a) {
+    "use strict";
+    function b(a, b) {
+        for (var c in b) a[c] = b[c];
+        return a;
+    }
+    function c(a) {
+        return "[object Array]" === i.call(a);
+    }
+    function d(a) {
+        var b = [];
+        if (c(a)) b = a; else if ("number" == typeof a.length) for (var d = 0, e = a.length; e > d; d++) b.push(a[d]); else b.push(a);
+        return b;
+    }
+    function e(a, c) {
+        function e(a, c, g) {
+            if (!(this instanceof e)) return new e(a, c);
+            "string" == typeof a && (a = document.querySelectorAll(a)), this.elements = d(a), 
+            this.options = b({}, this.options), "function" == typeof c ? g = c : b(this.options, c), 
+            g && this.on("always", g), this.getImages(), f && (this.jqDeferred = new f.Deferred());
+            var h = this;
+            setTimeout(function() {
+                h.check();
+            });
+        }
+        function i(a) {
+            this.img = a;
+        }
+        e.prototype = new a(), e.prototype.options = {}, e.prototype.getImages = function() {
+            this.images = [];
+            for (var a = 0, b = this.elements.length; b > a; a++) {
+                var c = this.elements[a];
+                "IMG" === c.nodeName && this.addImage(c);
+                for (var d = c.querySelectorAll("img"), e = 0, f = d.length; f > e; e++) {
+                    var g = d[e];
+                    this.addImage(g);
+                }
+            }
+        }, e.prototype.addImage = function(a) {
+            var b = new i(a);
+            this.images.push(b);
+        }, e.prototype.check = function() {
+            function a(a, e) {
+                return b.options.debug && h && g.log("confirm", a, e), b.progress(a), c++, c === d && b.complete(), 
+                !0;
+            }
+            var b = this, c = 0, d = this.images.length;
+            this.hasAnyBroken = !1;
+            for (var e = 0; d > e; e++) {
+                var f = this.images[e];
+                f.on("confirm", a), f.check();
+            }
+        }, e.prototype.progress = function(a) {
+            this.hasAnyBroken = this.hasAnyBroken || !a.isLoaded, this.emit("progress", this, a), 
+            this.jqDeferred && this.jqDeferred.notify(this, a);
+        }, e.prototype.complete = function() {
+            var a = this.hasAnyBroken ? "fail" : "done";
+            if (this.isComplete = !0, this.emit(a, this), this.emit("always", this), this.jqDeferred) {
+                var b = this.hasAnyBroken ? "reject" : "resolve";
+                this.jqDeferred[b](this);
+            }
+        }, f && (f.fn.imagesLoaded = function(a, b) {
+            var c = new e(this, a, b);
+            return c.jqDeferred.promise(f(this));
+        });
+        var j = {};
+        return i.prototype = new a(), i.prototype.check = function() {
+            var a = j[this.img.src];
+            if (a) return this.useCached(a), void 0;
+            if (j[this.img.src] = this, this.img.complete && void 0 !== this.img.naturalWidth) return this.confirm(0 !== this.img.naturalWidth, "naturalWidth"), 
+            void 0;
+            var b = this.proxyImage = new Image();
+            c.bind(b, "load", this), c.bind(b, "error", this), b.src = this.img.src;
+        }, i.prototype.useCached = function(a) {
+            if (a.isConfirmed) this.confirm(a.isLoaded, "cached was confirmed"); else {
+                var b = this;
+                a.on("confirm", function(a) {
+                    return b.confirm(a.isLoaded, "cache emitted confirmed"), !0;
+                });
+            }
+        }, i.prototype.confirm = function(a, b) {
+            this.isConfirmed = !0, this.isLoaded = a, this.emit("confirm", this, b);
+        }, i.prototype.handleEvent = function(a) {
+            var b = "on" + a.type;
+            this[b] && this[b](a);
+        }, i.prototype.onload = function() {
+            this.confirm(!0, "onload"), this.unbindProxyEvents();
+        }, i.prototype.onerror = function() {
+            this.confirm(!1, "onerror"), this.unbindProxyEvents();
+        }, i.prototype.unbindProxyEvents = function() {
+            c.unbind(this.proxyImage, "load", this), c.unbind(this.proxyImage, "error", this);
+        }, e;
+    }
+    var f = a.jQuery, g = a.console, h = "undefined" != typeof g, i = Object.prototype.toString;
+    "function" == typeof define && define.amd ? define([ "eventEmitter", "eventie" ], e) : a.imagesLoaded = e(a.EventEmitter, a.eventie);
+}(window);
 
 var db = {
     introducao: {
@@ -3256,6 +3442,15 @@ $introducao = $("#quizIntroducao").text(db.introducao[currLanguage]), theQuiz.pr
         e.removeClass("ok").removeClass("fail");
     }), this.quiz[a].tip ? (this.view.tipHandler.removeClass("hidden"), this.view.tipBox.removeClass("hidden").text(this.quiz[a].tip[this.lingua])) : (this.view.tipHandler.addClass("hidden"), 
     this.view.tipBox.addClass("hidden"));
-};
+}, $("#preloadImgsQuiz").imagesLoaded().always(function() {
+    console.log("always: all images loaded"), runQuiz();
+}).done(function() {
+    console.log("done: all images successfully loaded");
+}).fail(function() {
+    console.log("fail: all images loaded, at least one is broken");
+}).progress(function(a, b) {
+    var c = b.isLoaded ? "loaded" : "broken";
+    console.log("image is " + c + " for " + b.img.src);
+});
 
-var valeTheQuiz = new theQuiz(db, currLanguage, pathImg);
+var valeTheQuiz;

@@ -171,5 +171,25 @@ theQuiz.prototype.build = function(pos) {
     }
 };
 
-// executa o quiz
-var valeTheQuiz = new theQuiz(db, currLanguage, pathImg);
+$('#preloadImgsQuiz').imagesLoaded()
+    .always( function( instance ) {
+        console.log('always: all images loaded');
+        runQuiz();
+    })
+    .done( function( instance ) {
+        console.log('done: all images successfully loaded');
+    })
+    .fail( function() {
+        console.log('fail: all images loaded, at least one is broken');
+    })
+    .progress( function( instance, image ) {
+        var result = image.isLoaded ? 'loaded' : 'broken';
+        console.log( 'image is ' + result + ' for ' + image.img.src );
+    });
+
+// Executa
+var valeTheQuiz;
+function runQuiz()
+{
+    valeTheQuiz = new theQuiz(db, currLanguage, pathImg);
+}
