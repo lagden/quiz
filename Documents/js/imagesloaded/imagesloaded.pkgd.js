@@ -464,7 +464,7 @@ if ( typeof define === 'function' && define.amd ) {
  * JavaScript is all like "You images are done yet or what?"
  */
 
-( function( window ) {
+( function( window, document ) {
 
 'use strict';
 
@@ -521,7 +521,7 @@ function defineImagesLoaded( EventEmitter, eventie ) {
     }
     // use elem as selector string
     if ( typeof elem === 'string' ) {
-      elem = document.querySelectorAll( elem );
+      elem = $( elem );
     }
 
     this.elements = makeArray( elem );
@@ -566,7 +566,7 @@ function defineImagesLoaded( EventEmitter, eventie ) {
         this.addImage( elem );
       }
       // find children
-      var childElems = elem.querySelectorAll('img');
+      var childElems = $(elem).find('img');
       // concat childElems to filterFound array
       for ( var j=0, jLen = childElems.length; j < jLen; j++ ) {
         var img = childElems[j];
@@ -735,4 +735,4 @@ if ( typeof define === 'function' && define.amd ) {
   );
 }
 
-})( window );
+})( window, document );
