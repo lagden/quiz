@@ -31,12 +31,12 @@ ou apenas
     grunt
     
 
-Como publicar na Vale
----------------------
+Como publicar na Vale (Intranet)
+--------------------------------
 
 Faça o upload dos arquivos para: 
 
-[Vale Site Manager](https://intranet.valeglobal.net/pt-br/oquefazemos/_layouts/sitemanager.aspx?Source=%2Fpt-br%2Foquefazemos%2FPaginas%2Fquiz-das-operacoes%2Easpx&Filter=1&FilterOnly=1)
+[Vale Intranet Manager](https://intranet.valeglobal.net/pt-br/oquefazemos/_layouts/sitemanager.aspx?Source=%2Fpt-br%2Foquefazemos%2FPaginas%2Fquiz-das-operacoes%2Easpx&Filter=1&FilterOnly=1)
 
 + `output.js`
 + `pt_en_es.html`
