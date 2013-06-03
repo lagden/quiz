@@ -120,22 +120,25 @@ theQuiz.prototype.next = function(el) {
     }
 
     TweenMax.to(this.view.resultado, .5, {opacity: 1});
-    TweenMax.from(this.view.resultado, 5, {top: "-50%", ease:Bounce.easeOut, onComplete: that.after, onCompleteParams: [that]});
+    TweenMax.from(this.view.resultado, 1.5, {top: "-50%", ease:Bounce.easeOut, onComplete: that.after, onCompleteParams: [that]});
 };
 
 theQuiz.prototype.after = function(that) {
-    if(that.curr < (that.totalPerguntas - 1))
+    setTimeout(function()
     {
-        that.curr++;
-        TweenMax.to(that.view.resultado, .5, {delay: 1, opacity: 0, onComplete: function(){
-            that.view.resultado.addClass("remove-o-span-do-ie");
-            that.build(that.curr);
-            that.listener(true);
-        }});
-    }
-    else{
-        that.showResult();
-    }
+        if(that.curr < (that.totalPerguntas - 1))
+        {
+            that.curr++;
+            TweenMax.to(that.view.resultado, .5, {delay: 1, opacity: 0, onComplete: function(){
+                that.view.resultado.addClass("remove-o-span-do-ie");
+                that.build(that.curr);
+                that.listener(true);
+            }});
+        }
+        else{
+            that.showResult();
+        }
+    }, 4000);
 };
 
 theQuiz.prototype.showResult = function() {
