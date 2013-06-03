@@ -136,6 +136,13 @@ html {
   font-family: false, Arial, sans-serif;
   overflow-y: scroll;
   min-height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
 }
 
 .caecilia, .quizTitulo, .quizFrame .quizPergunta, .quizFrame .quizRespostas li, .quizResultadoResposta span, .quizTip span,

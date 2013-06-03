@@ -4,9 +4,16 @@
         <meta charset="UTF-8">
         <title>Quiz</title>
         <link href="/PT/aboutvale/news/Documents/quiz/css/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+        <style type="text/css">
+            html,
+            body{
+                overflow: hidden;
+            }
+        </style>
     </head>
     <body>
         <div class="wrapperQuiz">
+            <p id="quizIntroducao" class="hidden"></p>
             <div id="quizFrame" class="quizFrame">
                 <div class="quizGroup relative">
                     <img src="/PT/aboutvale/news/Documents/quiz/images/blank.gif" alt="" class="quizImg">
@@ -64,8 +71,8 @@
             <img src="/PT/aboutvale/news/Documents/quiz/images/sprites/ico/c-fail.png" alt="" class="visuallyhidden">
             <img src="/PT/aboutvale/news/Documents/quiz/images/sprites/ico/c-ok.png" alt="" class="visuallyhidden">
         </div>
+        <script>window.jQuery || document.write('<script src="/PT/aboutvale/news/Documents/quiz/jquery.min.js"><\/script>')</script>
         <script>window.jQuery || document.write('<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"><\/script>')</script>
-        <script>window.jQuery || document.write('<script src="/_layouts/VALE.ValeCom/js/lib/jquery/jquery-1.7.2.js"><\/script>')</script>
         <script type="text/javascript">
             var pathImg = '/PT/aboutvale/news/Documents/quiz/images/';
         </script>
