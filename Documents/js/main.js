@@ -68,7 +68,7 @@ theQuiz.prototype.reset = function() {
     this.totalPontos = this.curr = 0;
     this.build(this.curr);
     this.listener(true);
-    this.view.show.removeClass('ok fail').addClass('hidden');
+    this.view.show.removeClass('ok fail remove-o-span-do-ie').addClass('hidden');
     this.view.grupo.css({opacity: 1});
     this.view.resultado.css({opacity: 0});
 }
@@ -110,17 +110,17 @@ theQuiz.prototype.next = function(el) {
     if(this.isCorreto)
     {
         this.totalPontos++;
-        this.view.resultado.removeClass('fail').addClass('ok')
+        this.view.resultado.removeClass('fail remove-o-span-do-ie').addClass('ok')
         .find('span').text(this.dados.correto[this.lingua]);
     }
     else
     {
-        this.view.resultado.removeClass('ok').addClass('fail')
+        this.view.resultado.removeClass('ok remove-o-span-do-ie').addClass('fail')
         .find('span').text(this.dados.incorreto[this.lingua]);
     }
 
     TweenMax.to(this.view.resultado, .5, {opacity: 1});
-    TweenMax.from(this.view.resultado, 1, {top: "-50%", ease:Bounce.easeOut, onComplete: that.after, onCompleteParams: [that]});
+    TweenMax.from(this.view.resultado, 5, {top: "-50%", ease:Bounce.easeOut, onComplete: that.after, onCompleteParams: [that]});
 };
 
 theQuiz.prototype.after = function(that) {
@@ -128,6 +128,7 @@ theQuiz.prototype.after = function(that) {
     {
         that.curr++;
         TweenMax.to(that.view.resultado, .5, {delay: 1, opacity: 0, onComplete: function(){
+            that.view.resultado.addClass("remove-o-span-do-ie");
             that.build(that.curr);
             that.listener(true);
         }});
@@ -146,7 +147,7 @@ theQuiz.prototype.showResult = function() {
     this.view.show.find('.txt:eq(0) > .pontos:eq(0)').addClass(css).html('<div>' + this.totalPontos + '<br><span>' + pontos + '</span></div>')
     this.view.show.find('.txt:eq(0) > .tituloMsg:eq(0)').text(tituloMsg);
     this.view.show.find('.txt:eq(0) > .corpoMsg:eq(0)').html(corpoMsg);
-    this.view.show.css({opacity: 0}).removeClass('hidden ok fail').addClass(css);
+    this.view.show.css({opacity: 0}).removeClass('hidden ok fail remove-o-span-do-ie').addClass(css);
     TweenMax.to(this.view.show, 1, {opacity: 1});
     TweenMax.to(this.view.grupo, 1, {opacity: 0});
 }

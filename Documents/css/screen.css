@@ -172,7 +172,7 @@ html {
   color: white;
   display: block;
   margin: 0;
-  padding: 20px;
+  padding: 14px;
 }
 .quizFrame .quizRespostas {
   margin: 0;
@@ -182,12 +182,12 @@ html {
 .quizFrame .quizRespostas li {
   font-size: 20px;
   font-size: 1.25rem;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   background-position: 20px 50%;
   background-repeat: no-repeat;
   background-color: #f7f7f7;
   color: #00b4cb;
-  padding: 20px;
+  padding: 18px;
   padding-left: 77px;
   cursor: pointer;
 }
@@ -257,6 +257,9 @@ html {
   font-size: 1rem;
   position: relative;
   top: 85px;
+}
+.quizResultadoResposta.remove-o-span-no-ie span {
+  display: none;
 }
 
 .quizTip,
@@ -378,13 +381,16 @@ html {
   font-size: 1.6875rem;
 }
 .quizShowResultado .txt .corpoMsg a {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
   font-size: 16px;
   font-size: 1rem;
   padding: 10px;
   padding: 0.625rem;
-  display: inline-block;
-  *display: inline;
-  *zoom: 1;
+  top: 11px;
+  top: 0.6875rem;
+  position: relative;
   color: white;
   background-color: #007e7a;
   text-decoration: none;

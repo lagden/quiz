@@ -37,7 +37,7 @@ html{
         color: $white;
         display: block;
         margin: 0;
-        padding: $padding;
+        padding: $padding - 6;
     }
     .quizRespostas{
         margin: 0;
@@ -46,14 +46,14 @@ html{
         li{
             @extend .caecilia;
             @include attr-size('font-size', 20);
-            margin-bottom: $padding / 2;
+            margin-bottom: $padding / 2 / 2;
             background: {
                 position: 20px 50%;
                 repeat: no-repeat;
                 color: $gray;
             }
             color: $blue;
-            padding: $padding;
+            padding: $padding - 2;
             padding-left: $padding * 2 + 37px;
             cursor: pointer;
             @each $letra in 'a', 'b', 'c' {
@@ -114,6 +114,11 @@ html{
         @include attr-size('font-size', 16);
         position: relative;
         top: 85px;
+    }
+    &.remove-o-span-no-ie{
+        span{
+            display: none;
+        }
     }
 }
 
@@ -229,9 +234,11 @@ html{
         .corpoMsg{
             @include attr-size('font-size', 27);
             a{
+                @include inline-block;
                 @include attr-size('font-size', 16);
                 @include attr-size('padding', 10);
-                @include inline-block;
+                @include attr-size('top', 11);
+                position: relative;
                 color: $white;
                 background-color: $darkgreen;
                 text-decoration: none;

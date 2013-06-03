@@ -8,12 +8,6 @@ module.exports = function(grunt) {
       options: {
         separator: ';'
       },
-      frameworks: {
-        src: [
-          'components/jquery/jquery.js'
-        ],
-        dest: 'js/dist/frameworks.js'
-      },
       others: {
         src: [
             'js/greensock/src/uncompressed/plugins/CSSPlugin.js'
@@ -22,7 +16,6 @@ module.exports = function(grunt) {
           , 'js/greensock/src/uncompressed/TimelineMax.js'
           , 'js/greensock/src/uncompressed/TweenMax.js'
           , 'js/greensock/src/uncompressed/jquery.gsap.js'
-          // , 'components/imagesloaded/imagesloaded.js' // versão do bower não está funcionando
           , 'js/imagesloaded/imagesloaded.pkgd.js'
         ],
         dest: 'js/dist/others.js'
@@ -36,7 +29,6 @@ module.exports = function(grunt) {
       },
       watch: {
         src: [
-            // 'js/dist/frameworks.js' // o jquery já está na página
             'js/dist/others.js'
           , 'js/dist/base.js'
         ],
@@ -52,10 +44,6 @@ module.exports = function(grunt) {
             "DEBUG": false
           },
           dead_code: true
-        },
-        beautify: {
-          width: 80,
-          beautify: true
         }
       },
       target: {
