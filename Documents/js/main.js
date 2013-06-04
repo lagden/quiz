@@ -13,7 +13,12 @@ if (!(window.console && console.log)) {
 
 var currLanguage = String(document.documentElement.lang).split('-')[0] || 'pt';
 
-$introducao = $('#quizIntroducao').text(db.introducao[currLanguage]);
+;( function( window ) {
+
+'use strict';
+
+var $ = window.jQuery;
+var $introducao = $('#quizIntroducao').text(db.introducao[currLanguage]);
 
 // Quiz
 function theQuiz(dados, lingua, path)
@@ -45,11 +50,17 @@ function theQuiz(dados, lingua, path)
 theQuiz.prototype.init = function() {
     this.reset();
 
+    var that = this;
+
     // Tip events
     this.view.tipHandler.on('mouseenter mouseleave', {"box": this.view.tipBox}, function(ev){
         var box = ev.data.box;
         if(ev.type == 'mouseenter')
+        {
+            // Ga
+            gaUpdate('pergunta' + (that.curr + 1) + '_saiba-mais', 'mouse-over');
             TweenMax.to(box, .5, {opacity: 1, right: 0});
+        }
         else
             TweenMax.to(box, .5, {opacity: 0, right: '-225px'});
     })
@@ -91,16 +102,23 @@ theQuiz.prototype.responde = function(ev)
     ? $el.addClass('ok')
     : $el.addClass('fail');
 
+    // Ga
+    gaUpdate('pergunta-' + (that.curr + 1) + '_resposta-'+ $el.data('letra'));
+
     // Mostra o correto
     if($el.hasClass('fail'))
     {
-        that.view.respostas.find('> li').filter(function(){
-            return $(this).data("ok") == true;
-        })
-        .addClass('ok');
-    };
-
-    that.next();
+        setTimeout(function()
+        {
+            that.view.respostas.find('> li').filter(function(){
+                return $(this).data("ok") == true;
+            })
+            .addClass('ok');
+            that.next();
+        }, 1000);
+    }
+    else
+        that.next();
 }
 
 theQuiz.prototype.next = function(el) {
@@ -186,6 +204,11 @@ theQuiz.prototype.build = function(pos) {
     }
 };
 
+// browser global
+window.theQuiz = theQuiz;
+
+})( window );
+
 $('#preloadImgsQuiz').imagesLoaded()
     .always( function( instance ) {
         console.log('always: all images loaded');
@@ -207,4 +230,13 @@ var valeTheQuiz;
 function runQuiz()
 {
     valeTheQuiz = new theQuiz(db, currLanguage, pathImg);
+}
+
+// Ga
+function gaUpdate(track, evento, slug)
+{
+    evento = evento || 'clique';
+    slug = slug || 'aboutvale_news_paginas_teste-seus-conhecimentos-e-se-emocione-com-a-historia-da-vale';
+    _gaq.push(['_trackEvent', slug, evento, track]);
+    console.log(track, evento, slug);
 }
