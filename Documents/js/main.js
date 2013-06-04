@@ -171,6 +171,19 @@ theQuiz.prototype.showResult = function() {
     this.view.show.css({opacity: 0}).removeClass('hidden ok fail remove-o-span-do-ie').addClass(css);
     TweenMax.to(this.view.show, 1, {opacity: 1});
     TweenMax.to(this.view.grupo, 1, {opacity: 0});
+
+    // Ga
+    gaUpdate('resultado_' + this.totalPontos + 'pontos', 'load');
+
+    this.view.show.find('.txt:eq(0) > .corpoMsg:eq(0) > a:eq(0)').on('click', function(ev){
+        ev.preventDefault();
+        gaUpdate('resultado_saiba-ainda-mais-aqui');
+        var that = this;
+        setTimeout(function(){
+            location = that.href;
+        }, 500);
+    });
+    'resultado_saiba-ainda-mais-aqui'
 }
 
 theQuiz.prototype.build = function(pos) {
@@ -232,7 +245,7 @@ function runQuiz()
     valeTheQuiz = new theQuiz(db, currLanguage, pathImg);
 }
 
-// Ga
+// Method Ga
 function gaUpdate(track, evento, slug)
 {
     evento = evento || 'clique';
