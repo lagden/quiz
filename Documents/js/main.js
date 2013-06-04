@@ -253,8 +253,12 @@ function runQuiz()
 // Method Ga
 function gaUpdate(track, evento, slug)
 {
+    var ga = _gaq || false;
     evento = evento || 'clique';
     slug = slug || 'aboutvale_news_paginas_teste-seus-conhecimentos-e-se-emocione-com-a-historia-da-vale';
-    _gaq.push(['_trackEvent', slug, evento, track]);
-    console.log(track, evento, slug);
+    if(ga)
+    {
+        ga.push(['_trackEvent', slug, evento, track]);
+        console.log(track, evento, slug);
+    }
 }
