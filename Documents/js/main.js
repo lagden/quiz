@@ -44,6 +44,11 @@ function theQuiz(dados, lingua, path)
     };
     this.opts = ['a','b','c'];
     this.isCorreto = false;
+    this.pontos = {
+        'pt': 'ponto',
+        'en': 'point',
+        'es': 'ponto'
+    }
     this.init();
 };
 
@@ -164,7 +169,7 @@ theQuiz.prototype.showResult = function() {
     var css = (this.totalPontos > media) ? 'ok' : 'fail';
     var tituloMsg = (this.totalPontos > media) ? this.dados.correto.msg.titulo[this.lingua] : this.dados.incorreto.msg.titulo[this.lingua];
     var corpoMsg = (this.totalPontos > media) ? this.dados.correto.msg.corpo[this.lingua] : this.dados.incorreto.msg.corpo[this.lingua];
-    var pontos = (this.totalPontos > 1) ? 'pontos' : 'ponto';
+    var pontos = this.pontos[this.lingua] + (this.totalPontos > 1) ? 's' : '';
     this.view.show.find('.txt:eq(0) > .pontos:eq(0)').addClass(css).html('<div>' + this.totalPontos + '<br><span>' + pontos + '</span></div>')
     this.view.show.find('.txt:eq(0) > .tituloMsg:eq(0)').text(tituloMsg);
     this.view.show.find('.txt:eq(0) > .corpoMsg:eq(0)').html(corpoMsg);
@@ -180,7 +185,7 @@ theQuiz.prototype.showResult = function() {
         gaUpdate('resultado_saiba-ainda-mais-aqui');
         var that = this;
         setTimeout(function(){
-            location = that.href;
+            window.open(that.href, '_parent');
         }, 500);
     });
     'resultado_saiba-ainda-mais-aqui'

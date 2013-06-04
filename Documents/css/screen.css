@@ -265,7 +265,7 @@ body {
   position: relative;
   top: 85px;
 }
-.quizResultadoResposta.remove-o-span-no-ie span {
+.quizResultadoResposta.remove-o-span-do-ie span {
   display: none;
 }
 
