@@ -12,6 +12,7 @@ if (!(window.console && console.log)) {
 }
 
 var currLanguage = String(window.parent.document.documentElement.lang).split('-')[0] || 'pt';
+console.log(currLanguage);
 
 ;( function( window ) {
 
