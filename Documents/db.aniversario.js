@@ -16,7 +16,7 @@ var db = {
             },
             corpo: {
                 pt: 'Você realmente conhece muito sobre as nossas operações. Continue assim!<br><a href="http://www.vale.com/brasil/PT/business/Paginas/default.aspx">Saiba ainda mais aqui</a>',
-                en: 'You really know a lot about our operations. Keep it up!<br><a href="http://intranet.valeglobal.net/en-us/oquefazemos/estrategiadenegocios/Pages/default.aspx">Find out more here</a>',
+                en: 'You really know a lot about our operations. Keep it up!<br><a href="http://www.vale.com/brasil/EN/business/Pages/default.aspx">Find out more here</a>',
                 es: 'Realmente sabe mucho sobre nuestras operaciones. ¡Continúe así!<br><a href="http://intranet.valeglobal.net/es-es/oquefazemos/estrategiadenegocios/Paginas/default.aspx">Sepa aún más aquí</a> '
             }
         }
@@ -33,7 +33,7 @@ var db = {
             },
             corpo: {
                 pt: 'Que tal aprender um pouco mais sobre a nossa empresa?<br><a href="http://www.vale.com/brasil/PT/business/Paginas/default.aspx">Saiba ainda mais aqui</a>',
-                en: 'Why don’t you learn a little more about our company?<br><a href="http://intranet.valeglobal.net/en-us/oquefazemos/estrategiadenegocios/Pages/default.aspx">Click here</a>',
+                en: 'Why don’t you learn a little more about our company?<br><a href="http://www.vale.com/brasil/EN/business/Pages/default.aspx">Click here</a>',
                 es: '¿Qué tal aprender un poco más sobre nuestra empresa?<br><a href="http://intranet.valeglobal.net/es-es/oquefazemos/estrategiadenegocios/Paginas/default.aspx">Haga clic aquí</a>'
             }
         }
