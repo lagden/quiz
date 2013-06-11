@@ -54,16 +54,40 @@ module.exports = function(grunt) {
         }
       }
     },
-    watch: {
-      files: ['js/main.js'],
-      tasks: ['concat', 'concat:watch'],
+    // Compass
+    compass: {
+      dist: {
+        options: {
+          config: 'config.rb'
+        }
+      }
     },
+
+    // Watch
+    watch: {
+
+      js: {
+        files: ['js/main.js'],
+        tasks: ['concat', 'concat:watch'],
+        options: {
+          livereload: true
+        }
+      },
+
+      css: {
+        files: ['sass/**/*.scss'],
+        tasks: ['compass'],
+        options: {
+          livereload: true
+        }
+      }
+    }
   });
 
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-uglify');
-
-  grunt.registerTask('default', ['concat', 'uglify']);
-
+  grunt.loadNpmTasks('grunt-contrib-compass');
+  grunt.loadNpmTasks('grunt-contrib-livereload');
+  grunt.registerTask('default', ['concat', 'uglify', 'compass', 'livereload-start']);
 };

@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <title>Quiz</title>
+        <link href="/Documents/apps/quiz/css/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+        <div class="wrapperQuiz">
+            <p id="quizIntroducao"></p>
+            <div id="quizFrame" class="quizFrame">
+                <div class="quizGroup relative">
+                    <img src="/Documents/apps/quiz/images/blank.gif" alt="" class="quizImg">
+                    <!-- Tips -->
+                    <!-- Resposta -->
+                    <div id="quizResultadoResposta" class="quizResultadoResposta">
+                        <span></span>
+                    </div>
+                    <div id="quizAtual" class="quizAtual ico-gota-left">
+                        <span>1</span>
+                    </div>
+                    <div id="quizTipBox" class="quizTipBox hidden"></div>
+                    <div id="quizTip" class="quizTip ico-gota-right">
+                        <span>?</span>
+                    </div>
+                    <div id="quizShowResultado" class="quizShowResultado hidden">
+                        <div class="ico-tri-tl tl"></div>
+                        <div class="ico-tri-tr tr"></div>
+                        <div class="ico-tri-bl bl"></div>
+                        <div class="ico-tri-br br"></div>
+                        <table>
+                            <tr>
+                                <td>
+                                    <div class="txt">
+                                        <div class="pontos fail">
+                                            <div></div>
+                                        </div>
+                                        <div class="tituloMsg"></div>
+                                        <div class="corpoMsg"></div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div id="quizGroupQuestion" class="quizGroupQuestion">
+                    <h3 class="quizPergunta"></h3>
+                    <ul class="quizRespostas">
+                        <li class="a"></li>
+                        <li class="b"></li>
+                        <li class="c"></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="visuallyhidden" id="preloadImgsQuiz">
+            <img src="/Documents/apps/quiz/images/sprites/ico-sc8300af8ec.png" alt="" class="visuallyhidden">
+            <img src="/Documents/apps/quiz/images/sprites/ico/a.png" alt="" class="visuallyhidden">
+            <img src="/Documents/apps/quiz/images/sprites/ico/a-fail.png" alt="" class="visuallyhidden">
+            <img src="/Documents/apps/quiz/images/sprites/ico/a-ok.png" alt="" class="visuallyhidden">
+            <img src="/Documents/apps/quiz/images/sprites/ico/b.png" alt="" class="visuallyhidden">
+            <img src="/Documents/apps/quiz/images/sprites/ico/b-fail.png" alt="" class="visuallyhidden">
+            <img src="/Documents/apps/quiz/images/sprites/ico/b-ok.png" alt="" class="visuallyhidden">
+            <img src="/Documents/apps/quiz/images/sprites/ico/c.png" alt="" class="visuallyhidden">
+            <img src="/Documents/apps/quiz/images/sprites/ico/c-fail.png" alt="" class="visuallyhidden">
+            <img src="/Documents/apps/quiz/images/sprites/ico/c-ok.png" alt="" class="visuallyhidden">
+        </div>
+        <script type="text/javascript">
+            var _gaq = false;
+            var pathImg = '/Documents/apps/quiz/images/';
+        </script>
+        <script>window.jQuery || document.write('<script src="/Documents/js/jquery-1.8.3.min.js"><\/script>')</script>
+        <script>window.jQuery || document.write('<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"><\/script>')</script>
+        <script src="/Documents/apps/quiz/db.js" type="text/javascript"></script>
+        <script src="/Documents/apps/quiz/output.js" type="text/javascript"></script>
+    </body>
+</html>
