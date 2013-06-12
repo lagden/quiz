@@ -12,7 +12,7 @@ module.exports = function(grunt) {
         src: [
             'js/greensock/src/uncompressed/plugins/CSSPlugin.js'
           , 'js/greensock/src/uncompressed/plugins/ScrollToPlugin.js'
-          , 'js/greensock/src/uncompressed/plugins/easing/EasePack.js'
+          , 'js/greensock/src/uncompressed/easing/EasePack.js'
           , 'js/greensock/src/uncompressed/TimelineMax.js'
           , 'js/greensock/src/uncompressed/TweenMax.js'
           , 'js/greensock/src/uncompressed/jquery.gsap.js'
